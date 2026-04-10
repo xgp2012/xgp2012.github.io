@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?41c7b0c2faa57322e4608efa9f99ee26";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
 <head>
+    <!-- 🔧 修复1：百度统计脚本移到 head 内部 -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?41c7b0c2faa57322e4608efa9f99ee26";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mindows下载站</title>
@@ -571,7 +573,8 @@ var _hmt = _hmt || [];
 
         <!-- 其他系统 -->
         <section id="qt-section" class="category-section">
-            <h2 class="section-title"><i class="fas fa-qt"></i> 其他系统</h2>
+            <!-- 🔧 修复3：fa-qt 替换为有效的 fa-box-open -->
+            <h2 class="section-title"><i class="fas fa-box-open"></i> 其他系统</h2>
             <div class="resources-grid" id="qt-resources">
                 <!-- 资源卡片将通过JavaScript动态生成 -->
             </div>
@@ -718,7 +721,8 @@ var _hmt = _hmt || [];
             {
                 id: 10,
                 title: "Windows8.1专业版",
-                code: "cn_windows_8.1_pro_vl_with_update_x64_dvd_6050873.iso"",
+                // 🔧 修复2：删除多余的引号
+                code: "cn_windows_8.1_pro_vl_with_update_x64_dvd_6050873.iso",
                 category: "windows",
                 size: "4.1GB",
                 date: "2024-11-15",
@@ -971,18 +975,9 @@ var _hmt = _hmt || [];
                 });
             });
             
-            // 下载按钮点击
-            document.addEventListener('click', (e) => {
-                if (e.target.classList.contains('download-btn') || 
-                    e.target.parentElement.classList.contains('download-btn')) {
-                    const button = e.target.classList.contains('download-btn') ? 
-                                  e.target : e.target.parentElement;
-                    const id = parseInt(button.dataset.id);
-                    const resource = resources.find(r => r.id === id);
-                    // 直接跳转到下载链接
-                    window.open(resource.downloadLink, '_blank');
-                }
-            });
+            // 🔧 修复4：移除冗余的下载按钮点击监听
+            // a标签已有 href + target="_blank"，无需再用JS打开窗口
+            // 原代码会导致点击时可能打开两个标签页
             
             // 关闭广告按钮
             closeAdBtn.addEventListener('click', () => {
@@ -990,40 +985,23 @@ var _hmt = _hmt || [];
             });
         }
 
-        // 搜索处理
+        // 🔧 修复5：优化搜索函数逻辑
         function handleSearch() {
             const searchTerm = searchInput.value.toLowerCase().trim();
-            
-            // 隐藏所有资源卡片
             const cards = document.querySelectorAll('.resource-card');
+            
             cards.forEach(card => {
-                card.style.display = 'none';
-            });
-            
-            // 如果搜索词为空，显示所有资源
-            if (!searchTerm) {
-                cards.forEach(card => {
+                if (!searchTerm) {
                     card.style.display = 'block';
-                });
-                return;
-            }
-            
-            // 根据搜索词过滤并显示资源
-            resources.forEach(resource => {
-                const title = resource.title.toLowerCase();
-                const code = resource.code.toLowerCase();
+                    return;
+                }
+                const title = card.querySelector('.resource-title').textContent.toLowerCase();
+                const code = card.querySelector('.resource-code').textContent.toLowerCase();
                 
                 if (title.includes(searchTerm) || code.includes(searchTerm)) {
-                    // 显示所有卡片（因为是动态生成的）
-                    const allCards = document.querySelectorAll('.resource-card');
-                    allCards.forEach(card => {
-                        const cardTitle = card.querySelector('.resource-title').textContent.toLowerCase();
-                        const cardCode = card.querySelector('.resource-code').textContent.toLowerCase();
-                        
-                        if (cardTitle.includes(searchTerm) || cardCode.includes(searchTerm)) {
-                            card.style.display = 'block';
-                        }
-                    });
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
                 }
             });
         }
