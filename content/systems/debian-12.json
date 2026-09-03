@@ -1,0 +1,26 @@
+{
+  "slug": "debian-12",
+  "name": "Debian 12 Bookworm",
+  "category": "linux",
+  "version": "12",
+  "arch": ["x64", "arm64", "x86"],
+  "size": "3.6 GB",
+  "languages": ["多语言"],
+  "updatedAt": "2025-05-08",
+  "description": "Debian 12 稳定版官方镜像，以稳定著称，适合服务器与高级桌面用户。",
+  "features": [
+    "Debian 官方原版",
+    "支持多种桌面环境（GNOME / KDE / XFCE）",
+    "软件包数量超过 59000 个"
+  ],
+  "requirements": {
+    "cpu": "1 GHz 处理器",
+    "ram": "1 GB 及以上",
+    "disk": "20 GB 及以上"
+  },
+  "mirrors": [
+    { "label": "Debian 官方", "url": "https://www.debian.org/distrib/" },
+    { "label": "阿里云镜像", "url": "https://mirrors.aliyun.com/debian/" }
+  ],
+  "tags": ["稳定", "服务器"]
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "firpe",
+  "name": "FirPE 维护系统",
+  "category": "pe",
+  "version": "2025.06",
+  "arch": ["x64"],
+  "size": "320 MB",
+  "languages": ["简体中文"],
+  "updatedAt": "2025-06-20",
+  "description": "FirPE 基于 Win11 内核的 PE 维护系统，界面美观，工具齐全。",
+  "features": ["基于 Win11 内核", "界面现代化", "工具齐全"],
+  "requirements": {
+    "cpu": "x64 兼容",
+    "ram": "1 GB 及以上",
+    "disk": "U 盘 1 GB 及以上"
+  },
+  "mirrors": [
+    { "label": "FirPE 官方", "url": "http://www.firpe.cn/" },
+    { "label": "备用下载", "url": "#" }
+  ],
+  "tags": ["PE", "Win11"]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Mindows 下载站",
+  "short_name": "Mindows",
+  "description": "提供安全、纯净、快速的 Windows / Linux / PE 系统镜像下载服务",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#ff8c00",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

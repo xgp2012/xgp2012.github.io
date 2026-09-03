@@ -1,0 +1,21 @@
+{
+  "slug": "chromeos-flex",
+  "name": "ChromeOS Flex",
+  "category": "other",
+  "version": "Latest",
+  "arch": ["x64"],
+  "size": "1.5 GB",
+  "languages": ["多语言"],
+  "updatedAt": "2025-07-30",
+  "description": "Google 官方为老旧 PC 推出的 ChromeOS 系统，让老电脑焕发新生。",
+  "features": ["Google 官方", "云端优先", "适合上网本与办公"],
+  "requirements": {
+    "cpu": "Intel / AMD x64",
+    "ram": "4 GB 及以上",
+    "disk": "16 GB 及以上"
+  },
+  "mirrors": [
+    { "label": "Google 官方", "url": "https://chromeos.google/products/chromeos-flex/" }
+  ],
+  "tags": ["云端", "轻量"]
+}

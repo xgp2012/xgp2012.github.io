@@ -1,0 +1,28 @@
+{
+  "slug": "wepe-2x",
+  "name": "微 PE 工具箱",
+  "category": "pe",
+  "version": "2.3",
+  "arch": ["x64", "x86"],
+  "size": "256 MB",
+  "languages": ["简体中文"],
+  "updatedAt": "2025-07-05",
+  "description": "微 PE 工具箱，国内最受欢迎的 U 盘 PE 之一，纯净无广告，适合系统维护与重装。",
+  "features": [
+    "纯净无广告、无捆绑",
+    "内置常用维护工具",
+    "支持 UEFI 与 Legacy 启动",
+    "体积小，启动快"
+  ],
+  "requirements": {
+    "cpu": "x86 / x64 兼容",
+    "ram": "512 MB 及以上",
+    "disk": "U 盘 1 GB 及以上"
+  },
+  "mirrors": [
+    { "label": "微 PE 官方", "url": "https://www.wepe.com.cn/" },
+    { "label": "备用下载", "url": "#" }
+  ],
+  "tags": ["PE", "维护", "纯净"],
+  "featured": true
+}

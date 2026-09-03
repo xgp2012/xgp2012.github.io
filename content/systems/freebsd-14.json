@@ -1,0 +1,21 @@
+{
+  "slug": "freebsd-14",
+  "name": "FreeBSD 14",
+  "category": "other",
+  "version": "14.1",
+  "arch": ["x64", "arm64"],
+  "size": "1.1 GB",
+  "languages": ["多语言"],
+  "updatedAt": "2025-04-22",
+  "description": "FreeBSD 14.1 官方原版镜像，类 Unix 操作系统，服务器场景应用广泛。",
+  "features": ["官方原版", "ZFS 默认", "网络性能优异"],
+  "requirements": {
+    "cpu": "1 GHz 处理器",
+    "ram": "1 GB 及以上",
+    "disk": "20 GB 及以上"
+  },
+  "mirrors": [
+    { "label": "FreeBSD 官方", "url": "https://www.freebsd.org/where/" }
+  ],
+  "tags": ["类 Unix", "服务器"]
+}

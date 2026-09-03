@@ -1,0 +1,125 @@
+# Mindows 下载站
+
+> 一个基于 [Next.js](https://nextjs.org) + [Tailwind CSS](https://tailwindcss.com) 构建的静态系统镜像下载站。
+
+提供 Windows / Linux / PE 等系统镜像的检索与下载服务。结构清晰、SEO 友好、便于管理。
+
+## ✨ 特性
+
+- ⚡ **静态导出** — 使用 Next.js `output: "export"` 生成纯静态文件，任意 CDN / Pages 均可托管
+- 🎨 **Tailwind CSS** — 原子化样式，主题色与暗色模式
+- 🔍 **SEO 优化** — 自动生成 sitemap.xml / robots.txt / JSON-LD 结构化数据、完整 OpenGraph、面包屑导航
+- 📦 **数据驱动** — 每个系统一个独立 JSON 文件，添加/修改/删除资源无需改动代码
+- ✅ **数据校验** — 基于 [Zod](https://zod.dev) 在构建时校验所有资源数据，slug 重复、字段缺失、格式错误立即报错
+- 🚀 **CI/CD** — GitHub Actions 自动构建并部署到 GitHub Pages
+
+## 🛠️ 技术栈
+
+| 用途 | 技术 |
+| --- | --- |
+| 框架 | Next.js 16 (App Router) |
+| 语言 | TypeScript |
+| 样式 | Tailwind CSS v4 |
+| 校验 | Zod |
+| 部署 | GitHub Pages via GitHub Actions |
+
+## 📁 项目结构
+
+```
+.
+├── content/
+│   └── systems/            # 系统镜像数据（每个系统一个 JSON）
+│       ├── windows-11-23h2-official.json
+│       ├── ubuntu-24-04-lts.json
+│       └── ...
+├── public/                 # 静态资源（自动拷贝到构建产物）
+│   ├── manifest.webmanifest
+│   ├── robots.txt
+│   └── sitemap.xml
+├── src/
+│   ├── app/                # Next.js App Router 页面
+│   ├── components/         # 复用组件
+│   ├── config/             # 站点与分类配置
+│   ├── lib/                # 数据访问层
+│   └── types/              # 共享类型与 Zod schema
+├── .github/workflows/      # GitHub Actions 工作流
+└── next.config.ts
+```
+
+## 🚀 本地开发
+
+环境要求：**Node.js 20+**
+
+```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器（http://localhost:3000）
+npm run dev
+
+# 构建生产版本（输出到 ./out 目录）
+npm run build
+
+# 代码检查
+npm run lint
+```
+
+## ➕ 添加 / 修改系统资源
+
+所有系统数据存放在 `content/systems/` 目录下，每个系统一个独立 JSON 文件，文件名即 `slug`。
+
+### 添加新系统
+
+1. 在 `content/systems/` 下新建文件 `your-system-slug.json`
+2. 参考现有文件填写字段
+3. 提交代码，CI 自动构建部署
+
+### 字段说明
+
+| 字段 | 必填 | 说明 |
+| --- | --- | --- |
+| `slug` | ✅ | 唯一标识，仅小写字母、数字、短横线，文件名需与之一致 |
+| `name` | ✅ | 显示名称 |
+| `category` | ✅ | 分类：`windows` / `linux` / `pe` / `other` |
+| `version` | ✅ | 版本号 |
+| `arch` | ✅ | 架构数组，至少包含一个：`x86` / `x64` / `arm64` |
+| `size` | ✅ | 文件大小（如 `6.2 GB`） |
+| `languages` | ✅ | 支持语言数组 |
+| `updatedAt` | ✅ | 更新日期，格式 `YYYY-MM-DD` |
+| `description` | ✅ | 简介 |
+| `features` | ✅ | 特性列表 |
+| `requirements.cpu/ram/disk` | ✅ | 硬件要求 |
+| `mirrors` | ✅ | 下载镜像（至少 1 个） |
+| `tags` | ❌ | 标签数组 |
+| `featured` | ❌ | 是否首页推荐 |
+| `cover` | ❌ | 封面图路径 |
+
+### 修改现有系统
+
+直接编辑对应 JSON 文件即可。CI 会在构建时进行校验。
+
+## 🌐 部署
+
+本项目通过 `.github/workflows/deploy.yml` 自动部署到 GitHub Pages：
+
+1. 推送代码到 `main` 分支
+2. Actions 自动安装依赖、构建静态文件
+3. 将 `./out` 目录部署到 GitHub Pages
+
+### 首次启用 Pages
+
+1. 进入仓库 **Settings → Pages**
+2. **Source** 选择 **GitHub Actions**
+3. 之后每次推送到 `main` 都会自动触发部署
+
+## 🤝 贡献
+
+欢迎提交 Issue 与 Pull Request 来改进项目：
+- 修正资源数据
+- 新增系统镜像条目
+- 完善文档
+- 优化样式与功能
+
+## 📄 许可
+
+MIT

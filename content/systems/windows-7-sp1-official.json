@@ -1,0 +1,26 @@
+{
+  "slug": "windows-7-sp1-official",
+  "name": "Windows 7 SP1 官方原版",
+  "category": "windows",
+  "version": "SP1",
+  "arch": ["x64", "x86"],
+  "size": "3.1 GB",
+  "languages": ["简体中文", "英文"],
+  "updatedAt": "2024-12-10",
+  "description": "Windows 7 SP1 官方最终原版镜像，集成截至 2023 年扩展更新，仅供怀旧与特殊场景使用。",
+  "features": [
+    "微软官方原版",
+    "集成 SHA-2 更新补丁",
+    "适用于怀旧与老硬件"
+  ],
+  "requirements": {
+    "cpu": "1 GHz 处理器",
+    "ram": "1 GB 及以上",
+    "disk": "20 GB 及以上"
+  },
+  "mirrors": [
+    { "label": "微软官方存档", "url": "https://learn.microsoft.com/lifecycle/products/windows-7" },
+    { "label": "国内镜像", "url": "#" }
+  ],
+  "tags": ["怀旧", "老硬件"]
+}

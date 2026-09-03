@@ -1,0 +1,22 @@
+{
+  "slug": "arch-linux-2025",
+  "name": "Arch Linux 最新版",
+  "category": "linux",
+  "version": "Rolling",
+  "arch": ["x64"],
+  "size": "1.2 GB",
+  "languages": ["多语言"],
+  "updatedAt": "2025-08-01",
+  "description": "Arch Linux 滚动更新版官方镜像，适合喜欢自定义与前沿软件的用户。",
+  "features": ["滚动更新", "极简安装", "AUR 生态丰富"],
+  "requirements": {
+    "cpu": "1 GHz 处理器",
+    "ram": "512 MB 及以上",
+    "disk": "10 GB 及以上"
+  },
+  "mirrors": [
+    { "label": "Arch 官方", "url": "https://archlinux.org/download/" },
+    { "label": "清华镜像", "url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/" }
+  ],
+  "tags": ["滚动", "极简", "高级"]
+}
