@@ -9,6 +9,11 @@ export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
   alternates: { canonical: siteConfig.url },
+  verification: {
+    other: {
+      "msvalidate.01": "3F5F976A382F8F9D471F7079BFF0A81D",
+    },
+  },
 };
 
 export default async function HomePage() {
