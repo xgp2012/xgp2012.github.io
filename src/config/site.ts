@@ -32,6 +32,7 @@ export const siteConfig = {
     { label: "Linux", href: "/category/linux" },
     { label: "PE 系统", href: "/category/pe" },
     { label: "其他系统", href: "/category/other" },
+    { label: "公告", href: "/announcements" },
     { label: "关于", href: "/about" },
   ],
   social: [
