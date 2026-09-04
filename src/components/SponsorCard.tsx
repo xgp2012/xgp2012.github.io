@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { siteConfig } from "@/config/site";
+import { getAllSponsors } from "@/lib/sponsors";
 
 export default function SponsorCard({
   title,
@@ -50,8 +50,8 @@ export default function SponsorCard({
   );
 }
 
-export function SponsorSection() {
-  const sponsors = siteConfig.sponsors;
+export async function SponsorSection() {
+  const sponsors = await getAllSponsors();
   if (sponsors.length === 0) return null;
   return (
     <div className="border-t border-[#1a1a1a] pt-8 mt-8">

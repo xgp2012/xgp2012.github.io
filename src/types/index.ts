@@ -37,3 +37,13 @@ export interface Category {
   description: string;
   icon: string;
 }
+
+export interface Sponsor {
+  slug: string;
+  title: string;
+  description?: string;
+  image: string;
+  href: string;
+  cta?: string;
+  priority?: number;
+}

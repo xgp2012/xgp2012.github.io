@@ -28,9 +28,13 @@
 ```
 .
 ├── content/
-│   └── systems/            # 系统镜像数据（每个系统一个 JSON）
-│       ├── windows-11-23h2-official.json
-│       ├── ubuntu-24-04-lts.json
+│   ├── systems/            # 系统镜像数据（每个系统一个 JSON）
+│   │   ├── windows-11-23h2-official.json
+│   │   ├── ubuntu-24-04-lts.json
+│   │   └── ...
+│   └── sponsors/           # 赞助商数据（每个赞助商一个 JSON）
+│       ├── afdian.json
+│       ├── racknerd.json
 │       └── ...
 ├── public/                 # 静态资源（自动拷贝到构建产物）
 │   ├── manifest.webmanifest
@@ -97,6 +101,32 @@ npm run lint
 ### 修改现有系统
 
 直接编辑对应 JSON 文件即可。CI 会在构建时进行校验。
+
+## 💼 管理赞助商
+
+所有赞助商数据存放在 `content/sponsors/` 目录下，每个赞助商一个独立 JSON 文件，文件名即 `slug`。
+
+### 添加 / 修改赞助商
+
+1. 在 `content/sponsors/` 下新建文件 `your-sponsor-slug.json`（修改则编辑已有文件）
+2. 将赞助商 Logo 放到 `public/sponsors/` 目录
+3. 参考现有文件填写字段，提交代码后 CI 自动部署
+
+### 字段说明
+
+| 字段 | 必填 | 说明 |
+| --- | --- | --- |
+| `slug` | ✅ | 唯一标识，仅小写字母、数字、短横线，文件名需与之一致 |
+| `title` | ✅ | 赞助商名称 |
+| `description` | ❌ | 一句简介 |
+| `image` | ✅ | Logo 路径，如 `/sponsors/your-logo.png` |
+| `href` | ✅ | 跳转链接 |
+| `cta` | ❌ | 按钮文案，默认「查看详情」 |
+| `priority` | ❌ | 排序权重，数字越小越靠前，缺省排最后 |
+
+### 删除赞助商
+
+删除 `content/sponsors/` 下对应的 JSON 文件即可。
 
 ## 🌐 部署
 

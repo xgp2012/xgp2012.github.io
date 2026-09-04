@@ -14,6 +14,21 @@ export const systemRequirementsSchema = z.object({
   disk: z.string().min(1),
 });
 
+export const sponsorSchema = z.object({
+  slug: z
+    .string()
+    .min(1)
+    .regex(/^[a-z0-9-]+$/, "slug 只能包含小写字母、数字和短横线"),
+  title: z.string().min(1),
+  description: z.string().optional(),
+  image: z.string().min(1),
+  href: z.string().min(1),
+  cta: z.string().min(1).default("查看详情"),
+  priority: z.number().int().min(0).optional(),
+});
+
+export type SponsorInput = z.infer<typeof sponsorSchema>;
+
 export const systemItemSchema = z.object({
   slug: z
     .string()

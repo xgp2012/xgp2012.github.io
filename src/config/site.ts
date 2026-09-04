@@ -1,11 +1,3 @@
-export interface Sponsor {
-  title: string;
-  description?: string;
-  image: string;
-  href: string;
-  cta?: string;
-}
-
 export const siteConfig = {
   name: "Mindows 下载站",
   shortName: "Mindows",
@@ -47,29 +39,6 @@ export const siteConfig = {
     { label: "QQ 交流群 2", href: "https://jq.qq.com/" },
     { label: "Telegram 群组", href: "https://t.me/" },
   ],
-  sponsors: [
-    {
-      title: "爱发电",
-      description: "支持作者持续运营",
-      image: "/sponsors/afdian.svg",
-      href: "https://afdian.com/a/mindows",
-      cta: "前往支持",
-    },
-    {
-      title: "推荐 VPS 商家",
-      description: "高性价比海外服务器",
-      image: "/sponsors/racknerd.svg",
-      href: "https://www.racknerd.com/",
-      cta: "查看详情",
-    },
-    {
-      title: "域名注册",
-      description: "全球域名一站式服务",
-      image: "/sponsors/Cloudflare.svg",
-      href: "https://www.cloudflare.com/",
-      cta: "立即访问",
-    },
-  ] as Sponsor[],
   beian: "© 2025 Mindows 下载站 - 提供安全可靠的系统镜像下载服务",
 } as const;
 
