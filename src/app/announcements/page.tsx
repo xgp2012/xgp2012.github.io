@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Chip } from "@heroui/react";
 import { getAllAnnouncements } from "@/lib/announcements";
 
 export const metadata: Metadata = {
@@ -37,17 +38,14 @@ export default async function AnnouncementsPage() {
               <div className="flex items-start justify-between gap-3 mb-2">
                 <div className="flex items-center gap-2 flex-wrap">
                   {a.pinned && (
-                    <span className="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-xs rounded-full border border-orange-500/30 font-medium">
+                    <Chip size="sm" color="accent" variant="soft">
                       置顶
-                    </span>
+                    </Chip>
                   )}
                   {a.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 bg-[#0d0d0d] text-gray-500 text-xs rounded"
-                    >
+                    <Chip key={tag} size="sm" variant="secondary">
                       {tag}
-                    </span>
+                    </Chip>
                   ))}
                 </div>
                 <span className="text-gray-500 text-sm shrink-0">

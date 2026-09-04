@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import type { CategoryId } from "@/types";
 import { categories } from "@/config/categories";
 import type { SystemItem } from "@/types";
+import { Tabs, SearchField } from "@heroui/react";
 import SystemCard from "./SystemCard";
 
 export default function CategoryTabs({
@@ -33,37 +34,43 @@ export default function CategoryTabs({
 
   return (
     <section>
-      <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-2 mb-6 flex flex-col md:flex-row gap-2">
-        <div className="flex flex-wrap gap-1 flex-1">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActive(cat.id)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                active === cat.id
-                  ? "bg-gradient-to-r from-orange-600 to-orange-500 text-white shadow-lg shadow-orange-500/25"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
-              }`}
-            >
-              {cat.name}
-              <span
-                className={`ml-1.5 text-xs ${
-                  active === cat.id ? "text-white/80" : "text-gray-500"
-                }`}
-              >
-                ({cat.id === "all" ? systems.length : (categoryCounts[cat.id] ?? 0)})
-              </span>
-            </button>
-          ))}
-        </div>
-        <div className="md:w-64">
-          <input
-            type="search"
-            placeholder="搜索系统..."
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
+        <Tabs.Root
+          selectedKey={active}
+          onSelectionChange={(key) => setActive(key as CategoryId)}
+          className="flex-1"
+        >
+          <Tabs.ListContainer>
+            <Tabs.List className="flex flex-wrap">
+              {categories.map((cat) => (
+                <Tabs.Tab key={cat.id} id={cat.id}>
+                  {cat.name}
+                  <span className="ml-1.5 text-xs text-inherit opacity-70">
+                    (
+                    {cat.id === "all"
+                      ? systems.length
+                      : (categoryCounts[cat.id] ?? 0)}
+                    )
+                  </span>
+                </Tabs.Tab>
+              ))}
+            </Tabs.List>
+          </Tabs.ListContainer>
+        </Tabs.Root>
+
+        <div className="md:w-72">
+          <SearchField.Root
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="w-full px-3 py-2 bg-[#0d0d0d] border border-[#2a2a2a] rounded-lg text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-orange-500"
-          />
+            onChange={setQuery}
+            fullWidth
+            aria-label="搜索系统"
+          >
+            <SearchField.Group>
+              <SearchField.SearchIcon />
+              <SearchField.Input placeholder="搜索系统..." />
+              <SearchField.ClearButton />
+            </SearchField.Group>
+          </SearchField.Root>
         </div>
       </div>
 

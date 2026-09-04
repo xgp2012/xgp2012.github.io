@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getAllSponsors } from "@/lib/sponsors";
+import { Card } from "@heroui/react";
 
 export default function SponsorCard({
   title,
@@ -21,31 +22,46 @@ export default function SponsorCard({
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className="group block bg-[#141414] border border-[#2a2a2a] rounded-xl p-4 hover:border-orange-500/50 hover:shadow-lg hover:shadow-orange-500/10 hover:-translate-y-0.5 transition-all"
+      className="group block"
     >
-      <div className="relative w-full aspect-[16/9] mb-3 bg-[#0d0d0d] rounded-lg overflow-hidden flex items-center justify-center">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-contain p-3 group-hover:scale-105 transition-transform duration-300"
-        />
-      </div>
-      <h4 className="text-white font-semibold text-sm mb-1 line-clamp-1 group-hover:text-orange-400 transition-colors">
-        {title}
-      </h4>
-      {description && (
-        <p className="text-gray-500 text-xs mb-3 line-clamp-2 min-h-[2rem]">
-          {description}
-        </p>
-      )}
-      <span className="inline-flex items-center justify-center w-full gap-1.5 px-3 py-1.5 bg-gradient-to-r from-orange-600 to-orange-500 text-white text-xs font-medium rounded-md group-hover:shadow-md group-hover:shadow-orange-500/25 transition-shadow">
-        {cta}
-        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-        </svg>
-      </span>
+      <Card.Root
+        variant="default"
+        className="h-full border border-[#2a2a2a] bg-[#141414] p-4 transition-all duration-200 group-hover:border-orange-500/50 group-hover:shadow-lg group-hover:shadow-orange-500/10 group-hover:-translate-y-0.5"
+      >
+        <div className="relative w-full aspect-[16/9] mb-3 bg-[#0d0d0d] rounded-lg overflow-hidden flex items-center justify-center">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-contain p-3 group-hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+        <Card.Title className="line-clamp-1 mb-1 text-sm font-semibold text-white group-hover:text-orange-400 transition-colors">
+          {title}
+        </Card.Title>
+        {description && (
+          <Card.Description className="line-clamp-2 min-h-[2rem] mb-3 text-xs text-gray-500">
+            {description}
+          </Card.Description>
+        )}
+        <span className="inline-flex items-center justify-center w-full gap-1.5 px-3 py-1.5 bg-gradient-to-r from-orange-600 to-orange-500 text-white text-xs font-medium rounded-md group-hover:shadow-md group-hover:shadow-orange-500/25 transition-shadow">
+          {cta}
+          <svg
+            className="w-3 h-3"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
+          </svg>
+        </span>
+      </Card.Root>
     </a>
   );
 }

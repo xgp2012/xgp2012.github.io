@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { Chip, Button } from "@heroui/react";
 import { SponsorSection } from "./SponsorCard";
 
 export default function Footer() {
@@ -45,9 +46,14 @@ export default function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 bg-[#1a1a1a] border border-[#2a2a2a] rounded-full text-gray-400 hover:text-orange-400 hover:border-orange-500/50 text-xs transition-colors"
                 >
-                  {s.label}
+                  <Chip
+                    size="sm"
+                    variant="secondary"
+                    className="transition-colors hover:text-orange-400 hover:border-orange-500/50 cursor-pointer"
+                  >
+                    {s.label}
+                  </Chip>
                 </a>
               ))}
             </div>
@@ -60,9 +66,10 @@ export default function Footer() {
                     href={g.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1.5 bg-gradient-to-r from-orange-600 to-orange-500 text-white rounded-full text-xs font-medium hover:shadow-lg hover:shadow-orange-500/25 transition-shadow"
                   >
-                    {g.label}
+                    <Button size="sm" variant="primary" className="text-xs">
+                      {g.label}
+                    </Button>
                   </a>
                 ))}
               </div>

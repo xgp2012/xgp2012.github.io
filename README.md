@@ -7,7 +7,7 @@
 ## ✨ 特性
 
 - ⚡ **静态导出** — 使用 Next.js `output: "export"` 生成纯静态文件，任意 CDN / Pages 均可托管
-- 🎨 **Tailwind CSS** — 原子化样式，主题色与暗色模式
+- 🎨 **HeroUI + Tailwind CSS** — 基于 [HeroUI](https://heroui.com) v3 与 Tailwind CSS v4 的现代化界面，主题色与暗色模式
 - 🔍 **SEO 优化** — 自动生成 sitemap.xml / robots.txt / JSON-LD 结构化数据、完整 OpenGraph、面包屑导航
 - 📦 **数据驱动** — 每个系统一个独立 JSON 文件，添加/修改/删除资源无需改动代码
 - ✅ **数据校验** — 基于 [Zod](https://zod.dev) 在构建时校验所有资源数据，slug 重复、字段缺失、格式错误立即报错
@@ -19,6 +19,7 @@
 | --- | --- |
 | 框架 | Next.js 16 (App Router) |
 | 语言 | TypeScript |
+| UI | HeroUI v3 |
 | 样式 | Tailwind CSS v4 |
 | 校验 | Zod |
 | 部署 | GitHub Pages via GitHub Actions |

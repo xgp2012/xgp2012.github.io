@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/site";
 import { getAllSystems, getFeaturedSystems } from "@/lib/systems";
 import { getCategoryCounts } from "@/lib/stats";
 import CategoryTabs from "@/components/CategoryTabs";
+import SystemCard from "@/components/SystemCard";
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -75,34 +76,7 @@ export default async function HomePage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {featured.map((s) => (
-              <Link
-                key={s.slug}
-                href={`/system/${s.slug}`}
-                className="group block bg-gradient-to-br from-[#1a1a1a] to-[#141414] border border-orange-500/20 rounded-xl p-5 hover:border-orange-500/50 hover:shadow-xl hover:shadow-orange-500/10 hover:-translate-y-0.5 transition-all"
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-white font-semibold group-hover:text-orange-400 transition-colors">
-                    {s.name}
-                  </h3>
-                  <span className="shrink-0 px-2 py-0.5 bg-orange-500/10 text-orange-400 text-xs rounded-full border border-orange-500/30">
-                    推荐
-                  </span>
-                </div>
-                <p className="text-gray-400 text-sm line-clamp-2 mb-3">
-                  {s.description}
-                </p>
-                <div className="flex gap-2">
-                  <span className="text-xs px-2 py-0.5 bg-orange-500/10 text-orange-400 rounded">
-                    v{s.version}
-                  </span>
-                  <span className="text-xs px-2 py-0.5 bg-[#0d0d0d] text-gray-400 rounded">
-                    {s.size}
-                  </span>
-                  <span className="text-xs px-2 py-0.5 bg-[#0d0d0d] text-gray-400 rounded">
-                    {s.updatedAt}
-                  </span>
-                </div>
-              </Link>
+              <SystemCard key={s.slug} system={s} />
             ))}
           </div>
         </section>

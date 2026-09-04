@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { Chip } from "@heroui/react";
 import { getAllAnnouncements, getAnnouncementBySlug } from "@/lib/announcements";
 
 export async function generateStaticParams() {
@@ -59,17 +60,14 @@ export default async function AnnouncementPage({
         <header className="mb-6 pb-6 border-b border-[#2a2a2a]">
           <div className="flex items-center gap-2 flex-wrap mb-3">
             {a.pinned && (
-              <span className="px-2 py-0.5 bg-orange-500/10 text-orange-400 text-xs rounded-full border border-orange-500/30 font-medium">
+              <Chip size="sm" color="accent" variant="soft">
                 置顶
-              </span>
+              </Chip>
             )}
             {a.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-0.5 bg-[#0d0d0d] text-gray-500 text-xs rounded"
-              >
+              <Chip key={tag} size="sm" variant="secondary">
                 {tag}
-              </span>
+              </Chip>
             ))}
           </div>
           <h1 className="text-2xl sm:text-3xl font-bold text-white mb-3">

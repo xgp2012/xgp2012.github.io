@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { Chip } from "@heroui/react";
 import { siteConfig } from "@/config/site";
 import {
   getAllSystems,
@@ -74,16 +75,18 @@ export default async function SystemPage({
 
       <header className="mb-8">
         <div className="flex flex-wrap gap-2 mb-3">
-          <span className="px-3 py-1 bg-orange-500/10 text-orange-400 rounded-full text-sm border border-orange-500/30">
+          <Chip
+            size="md"
+            color="accent"
+            variant="soft"
+            className="font-medium"
+          >
             {system.category.toUpperCase()}
-          </span>
+          </Chip>
           {system.arch.map((a) => (
-            <span
-              key={a}
-              className="px-3 py-1 bg-[#1a1a1a] text-gray-300 rounded-full text-sm border border-[#2a2a2a]"
-            >
+            <Chip key={a} size="md" variant="secondary">
               {a}
-            </span>
+            </Chip>
           ))}
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-white mb-4">
