@@ -32,9 +32,13 @@
 │   │   ├── windows-11-23h2-official.json
 │   │   ├── ubuntu-24-04-lts.json
 │   │   └── ...
-│   └── sponsors/           # 赞助商数据（每个赞助商一个 JSON）
-│       ├── afdian.json
-│       ├── racknerd.json
+│   ├── sponsors/           # 赞助商数据（每个赞助商一个 JSON）
+│   │   ├── afdian.json
+│   │   ├── racknerd.json
+│   │   └── ...
+│   └── announcements/      # 公告数据（每个公告一个 Markdown）
+│       ├── about-ads.md
+│       ├── 2025-08-update.md
 │       └── ...
 ├── public/                 # 静态资源（自动拷贝到构建产物）
 │   ├── manifest.webmanifest
@@ -101,6 +105,57 @@ npm run lint
 ### 修改现有系统
 
 直接编辑对应 JSON 文件即可。CI 会在构建时进行校验。
+
+## 📢 管理公告
+
+公告使用 **Markdown 编写**，存放在 `content/announcements/` 目录下，每个公告一个 `.md` 文件，文件名即访问路径中的 `slug`。
+
+公告展示在 `/announcements` 列表页，详情页地址为 `/announcement/{slug}`。
+
+### 添加新公告
+
+1. 在 `content/announcements/` 下新建文件 `your-announcement-slug.md`
+2. 在文件顶部编写 YAML 前置元数据（frontmatter），正文使用 Markdown 编写
+3. 提交代码，CI 自动构建部署
+
+示例：
+
+```markdown
+---
+title: 示例公告
+date: 2025-09-10
+pinned: true
+tags: ["公告", "示例"]
+summary: 这是一条示例公告
+---
+
+## 标题
+
+支持 **粗体**、*斜体*、`行内代码` 等 Markdown 语法。
+
+- 列表项 1
+- 列表项 2
+
+| 列 1 | 列 2 |
+| --- | --- |
+| A | B |
+
+> 引用块、[链接](https://example.com)、表格、代码块均可正常渲染。
+```
+
+### 字段说明
+
+| 字段 | 必填 | 说明 |
+| --- | --- | --- |
+| `title` | ✅ | 公告标题 |
+| `date` | ✅ | 发布日期，格式 `YYYY-MM-DD` |
+| `pinned` | ❌ | 是否置顶，`true` 或 `false`，默认 `false` |
+| `tags` | ❌ | 标签数组，列表页展示 |
+| `summary` | ❌ | 摘要，列表页展示，未填写则只显示标题 |
+
+### 修改 / 删除公告
+
+直接编辑或删除 `content/announcements/` 下对应的 `.md` 文件即可。
 
 ## 💼 管理赞助商
 
