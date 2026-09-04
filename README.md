@@ -30,7 +30,7 @@
 .
 ├── content/
 │   ├── systems/            # 系统镜像数据（每个系统一个 JSON）
-│   │   ├── windows-11-23h2-official.json
+│   │   ├── windows-11-26h2-official.json
 │   │   ├── ubuntu-24-04-lts.json
 │   │   └── ...
 │   ├── sponsors/           # 赞助商数据（每个赞助商一个 JSON）

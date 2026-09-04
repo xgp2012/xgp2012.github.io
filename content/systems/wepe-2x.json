@@ -21,7 +21,7 @@
   },
   "mirrors": [
     { "label": "微 PE 官方", "url": "https://www.wepe.com.cn/" },
-    { "label": "备用下载", "url": "#" }
+    { "label": "官方下载链接", "url": "https://mirrors.sdu.edu.cn/wepe/WePE_64_V2.3.exe" }
   ],
   "tags": ["PE", "维护", "纯净"],
   "featured": true

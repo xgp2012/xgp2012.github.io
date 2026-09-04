@@ -1,18 +1,17 @@
 {
   "slug": "ubuntu-24-04-lts",
-  "name": "Ubuntu 24.04 LTS Desktop",
+  "name": "Ubuntu 24.04 LTS Server",
   "category": "linux",
   "version": "24.04 LTS",
   "arch": ["x64", "arm64"],
   "size": "5.7 GB",
   "languages": ["简体中文", "多语言"],
   "updatedAt": "2025-06-15",
-  "description": "Ubuntu 24.04 LTS 长期支持版桌面镜像，提供 5 年官方安全更新支持。",
+  "description": "Ubuntu 24.04 LTS 长期支持版命令行镜像，提供 5 年官方安全更新支持。",
   "features": [
     "官方原版 ISO",
-    "支持 GNOME 46 桌面",
     "长期支持至 2029 年 4 月",
-    "适合开发、办公与日常使用"
+    "适合开发使用"
   ],
   "requirements": {
     "cpu": "2 GHz 双核处理器",
@@ -21,8 +20,8 @@
   },
   "mirrors": [
     { "label": "Ubuntu 官方", "url": "https://releases.ubuntu.com/24.04/" },
-    { "label": "阿里云镜像", "url": "https://mirrors.aliyun.com/ubuntu-releases/24.04/" },
-    { "label": "中科大镜像", "url": "https://mirrors.ustc.edu.cn/ubuntu-releases/24.04/" }
+    { "label": "山东大学镜像", "url": "https://mirrors.sdu.edu.cn/ubuntu-releases/noble/ubuntu-24.04.4-live-server-amd64.iso" },
+    { "label": "中科大镜像", "url": "https://mirrors.ustc.edu.cn/ubuntu-releases/noble/ubuntu-24.04.4-live-server-amd64.iso" }
   ],
   "tags": ["LTS", "桌面", "新手友好"],
   "featured": true

@@ -15,7 +15,8 @@
     "disk": "20 GB 及以上"
   },
   "mirrors": [
-    { "label": "FreeBSD 官方", "url": "https://www.freebsd.org/where/" }
+    { "label": "FreeBSD 官方", "url": "https://download.freebsd.org/releases/amd64/amd64/ISO-IMAGES/15.1/FreeBSD-15.1-RELEASE-amd64-dvd1.iso" },
+    { "label": "南京大学镜像", "url": "https://mirror.nju.edu.cn/freebsd/releases/ISO-IMAGES/15.1/FreeBSD-15.1-RELEASE-amd64-dvd1.iso" }
   ],
   "tags": ["类 Unix", "服务器"]
 }

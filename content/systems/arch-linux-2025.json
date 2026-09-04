@@ -16,7 +16,7 @@
   },
   "mirrors": [
     { "label": "Arch 官方", "url": "https://archlinux.org/download/" },
-    { "label": "清华镜像", "url": "https://mirrors.tuna.tsinghua.edu.cn/archlinux/" }
+    { "label": "山东大学镜像", "url": "https://mirrors.sdu.edu.cn/archlinux/iso/latest/archlinux-2026.09.01-x86_64.iso" }
   ],
   "tags": ["滚动", "极简", "高级"]
 }

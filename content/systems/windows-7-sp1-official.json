@@ -20,7 +20,7 @@
   },
   "mirrors": [
     { "label": "微软官方存档", "url": "https://learn.microsoft.com/lifecycle/products/windows-7" },
-    { "label": "国内镜像", "url": "#" }
+    { "label": "国内镜像", "url": "https://download.testip.xyz/windows/cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso" }
   ],
   "tags": ["怀旧", "老硬件"]
 }

@@ -1,6 +1,6 @@
 {
   "slug": "debian-12",
-  "name": "Debian 12 Bookworm",
+  "name": "Debian 12 ",
   "category": "linux",
   "version": "12",
   "arch": ["x64", "arm64", "x86"],
@@ -20,7 +20,7 @@
   },
   "mirrors": [
     { "label": "Debian 官方", "url": "https://www.debian.org/distrib/" },
-    { "label": "阿里云镜像", "url": "https://mirrors.aliyun.com/debian/" }
+    { "label": "山东大学镜像", "url": "https://mirrors.sdu.edu.cn/debian-iso/current-live/amd64/iso-hybrid/debian-live-13.6.0-amd64-xfce.iso" }
   ],
   "tags": ["稳定", "服务器"]
 }
