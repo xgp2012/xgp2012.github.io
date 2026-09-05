@@ -4,6 +4,8 @@
 
 提供 Windows / Linux / PE 等系统镜像的检索与下载服务。结构清晰、SEO 友好、便于管理。
 
+> 📘 **完整开发文档请查看 [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)** —— 包含环境搭建、架构说明、数据层、页面路由、构建部署与常见问题排查。
+
 ## ✨ 特性
 
 - ⚡ **静态导出** — 使用 Next.js `output: "export"` 生成纯静态文件，任意 CDN / Pages 均可托管
